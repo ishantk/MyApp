@@ -1,5 +1,6 @@
 package com.auribises.myapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,19 @@ public class ActivityTwo extends AppCompatActivity {
         setContentView(R.layout.activity_two);
 
         eTxtName = findViewById(R.id.editTextName);
+
+        Intent rcv = getIntent();
+        //String name = rcv.getStringExtra("keyName");
+        //int age = rcv.getIntExtra("keyAge",0);
+
+        /*Bundle rcvBun = rcv.getBundleExtra("keyBundle");
+
+        String name = rcvBun.getString("keyName");
+        int age = rcvBun.getInt("keyAge");*/
+
+        Person person = (Person)rcv.getSerializableExtra("keyPerson");
+
+        eTxtName.setText(person.name+" is "+person.age+" years old");
 
     }
 
