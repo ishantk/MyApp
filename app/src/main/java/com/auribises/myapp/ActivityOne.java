@@ -75,12 +75,12 @@ public class ActivityOne extends AppCompatActivity {
 
     public void clickHandler(View view){
 
-        String name = eTxt.getText().toString();
+        //String name = eTxt.getText().toString();
         //txt.setText("Welcome, "+name);
 
 
         // Forward Passing
-        Intent intent = new Intent(ActivityOne.this,ActivityTwo.class);
+        //Intent intent = new Intent(ActivityOne.this,ActivityTwo.class);
 
         //intent.putExtra("keyName",name);
         //intent.putExtra("keyAge",20);
@@ -91,14 +91,27 @@ public class ActivityOne extends AppCompatActivity {
 
         intent.putExtra("keyBundle",bundle);*/
 
-        Person pRef = new Person();
+        /*Person pRef = new Person();
         pRef.name = name;
         pRef.age = 29;
 
-        intent.putExtra("keyPerson",pRef);
+        intent.putExtra("keyPerson",pRef);*
 
-        startActivity(intent);
+        startActivity(intent);*/
 
+
+        // BackWard Passing
+        Intent intent = new Intent(ActivityOne.this,ActivityTwo.class);
+        startActivityForResult(intent,101);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 101 && resultCode == 201){
+            String message = data.getStringExtra("keyMessage");
+            eTxt.setText(message);
+        }
     }
 
     @Override

@@ -21,7 +21,7 @@ public class ActivityTwo extends AppCompatActivity {
 
         eTxtName = findViewById(R.id.editTextName);
 
-        Intent rcv = getIntent();
+        //Intent rcv = getIntent();
         //String name = rcv.getStringExtra("keyName");
         //int age = rcv.getIntExtra("keyAge",0);
 
@@ -30,9 +30,9 @@ public class ActivityTwo extends AppCompatActivity {
         String name = rcvBun.getString("keyName");
         int age = rcvBun.getInt("keyAge");*/
 
-        Person person = (Person)rcv.getSerializableExtra("keyPerson");
+        //Person person = (Person)rcv.getSerializableExtra("keyPerson");
 
-        eTxtName.setText(person.name+" is "+person.age+" years old");
+        //eTxtName.setText(person.name+" is "+person.age+" years old");
 
     }
 
@@ -41,7 +41,13 @@ public class ActivityTwo extends AppCompatActivity {
         String name = eTxtName.getText().toString();
         String message = "Hello, "+name+" Its "+new Date();
 
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+
+        // dummy intent just to hold the data
+        Intent data = new Intent();
+        data.putExtra("keyMessage",message);
+
+        setResult(201,data);
 
         finish(); //Eqv of Pressing the back key
     }
