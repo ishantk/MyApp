@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/contact"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityOne"></activity>
+        <activity android:name=".ActivityOne" />
         <activity android:name=".ActivityTwo">
             <intent-filter>
                 <action android:name="com.auribises.myapp.ActivityTwo" />
@@ -19,10 +19,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity">
+        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".NewsActivity">
 
         </activity>
-        <activity android:name=".NewsActivity">
+        <activity android:name=".EnquiryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
