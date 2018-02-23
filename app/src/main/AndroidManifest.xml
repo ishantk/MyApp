@@ -19,11 +19,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity"></activity>
-        <activity android:name=".NewsActivity">
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".EnquiryActivity">
 
         </activity>
-        <activity android:name=".EnquiryActivity">
+        <activity android:name=".MyCustomListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
