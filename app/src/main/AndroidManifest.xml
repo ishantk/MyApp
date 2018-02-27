@@ -20,17 +20,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".NewsActivity"></activity>
-        <activity android:name=".EnquiryActivity">
-
-        </activity>
-        <activity android:name=".MyCustomListActivity">
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".EnquiryActivity" />
+        <activity android:name=".MyCustomListActivity"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MyFragmentsActivity"></activity>
     </application>
 
 </manifest>
