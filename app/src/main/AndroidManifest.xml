@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -36,7 +37,8 @@
         </activity>
         <activity android:name=".MyFragmentsActivity" />
         <activity android:name=".MyLocationActivity" />
-        <activity android:name=".ShakeDetectorActivity"></activity>
+        <activity android:name=".ShakeDetectorActivity" />
+        <activity android:name=".VoiceDemoActivity"></activity>
     </application>
 
 </manifest>
