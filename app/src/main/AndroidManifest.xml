@@ -28,9 +28,7 @@
         <activity android:name=".NewsActivity" />
         <activity android:name=".EnquiryActivity" />
         <activity android:name=".MyCustomListActivity" />
-        <activity android:name=".SplashActivity">
-
-        </activity>
+        <activity android:name=".SplashActivity"></activity>
         <activity android:name=".MyFragmentsActivity" />
         <activity android:name=".MyLocationActivity" />
         <activity android:name=".ShakeDetectorActivity" />
@@ -42,6 +40,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".BookFetcherService"
+            android:exported="true"
+            android:enabled="true"/>
     </application>
 
 </manifest>
