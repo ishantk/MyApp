@@ -1,5 +1,7 @@
 package com.auribises.myapp;
 
+import android.net.Uri;
+
 /**
  * Created by ishantkumar on 09/04/18.
  */
@@ -18,10 +20,12 @@ public class Util {
     public static final String COL_RATING = "RATING";
 
     public static final String CREATE_TAB_QUERY = "create table Feedback(" +
-            "_ID int primary key autoincrement," +
+            "_ID integer primary key autoincrement," +
             "NAME varchar(256)," +
             "PHONE varchar(256)," +
             "EMAIL varchar(256)," +
-            "RATING int" +
+            "RATING real" +
             ")";
+
+    public static final Uri URI = Uri.parse("content://com.auribises.myapp.feedbackcp/Feedback");
 }

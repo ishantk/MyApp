@@ -11,6 +11,7 @@ import android.net.Uri;
 public class FeedbackContentProvider extends ContentProvider {
 
     DBHelper dbHelper;
+    SQLiteDatabase sqLiteDatabase;
 
     public FeedbackContentProvider() {
     }
@@ -30,14 +31,17 @@ public class FeedbackContentProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        // TODO: Implement this to handle requests to insert a new row.
-        throw new UnsupportedOperationException("Not yet implemented");
+        String tabName = uri.getLastPathSegment();
+        long i = sqLiteDatabase.insert(tabName,null,values); // insert the data in Feedback Table
+        Uri anyName = Uri.parse("dummy://anything/"+i);
+        return anyName;
     }
 
     // Executed when you install the application
     @Override
     public boolean onCreate() {
         dbHelper = new DBHelper(getContext(),Util.DB_NAME,null,Util.DB_VERSION);
+        sqLiteDatabase = dbHelper.getWritableDatabase();
         return false;
     }
 

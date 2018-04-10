@@ -1,10 +1,14 @@
 package com.auribises.myapp;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +38,8 @@ public class AddFeedbackActivity extends AppCompatActivity {
     };
 
 
+    ContentResolver resolver; // to access ContentProvider
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +51,30 @@ public class AddFeedbackActivity extends AppCompatActivity {
 
         ratingBar.setOnRatingBarChangeListener(ratingBarChangeListener);
 
+        resolver = getContentResolver();
+
     }
+
+    void addFeedback(){
+
+        ContentValues values = new ContentValues();
+
+        values.put(Util.COL_NAME,feedback.name);
+        values.put(Util.COL_PHONE,feedback.phone);
+        values.put(Util.COL_EMAIL,feedback.email);
+        values.put(Util.COL_RATING,feedback.rating);
+
+        Uri uri = resolver.insert(Util.URI,values);
+        Toast.makeText(this,"Feedback Added "+uri.getLastPathSegment(),Toast.LENGTH_LONG).show();
+    }
+
+
 
     public void clickHandler(View view){
         feedback.name = eTxtName.getText().toString();
         feedback.phone = eTxtPhone.getText().toString();
         feedback.email = eTxtEmail.getText().toString();
+
+        addFeedback();
     }
 }
