@@ -6,6 +6,7 @@ package com.auribises.myapp;
 
 public class Feedback {
 
+    public int id;
     public String name;
     public String phone;
     public String email;

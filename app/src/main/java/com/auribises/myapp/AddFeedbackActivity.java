@@ -2,9 +2,12 @@ package com.auribises.myapp;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -68,7 +71,24 @@ public class AddFeedbackActivity extends AppCompatActivity {
         Toast.makeText(this,"Feedback Added "+uri.getLastPathSegment(),Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        menu.add(1,101,0,"All Feedbacks");
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == 101){
+            Intent intent = new Intent(AddFeedbackActivity.this,AllFeedbacksActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     public void clickHandler(View view){
         feedback.name = eTxtName.getText().toString();
