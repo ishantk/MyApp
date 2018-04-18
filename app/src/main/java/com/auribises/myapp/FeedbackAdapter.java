@@ -35,6 +35,7 @@ public class FeedbackAdapter extends ArrayAdapter<Feedback>{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = LayoutInflater.from(context).inflate(resource,parent,false);
+
         TextView txtName = view.findViewById(R.id.textViewName);
         TextView txtEmail = view.findViewById(R.id.textViewEmail);
 

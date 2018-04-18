@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,6 +24,9 @@ public class AllFeedbacksActivity extends AppCompatActivity implements AdapterVi
     ListView listView;
     FeedbackAdapter feedbackAdapter;
 
+    RecyclerView recyclerView;
+    FeedbackRecyclerAdapter recyclerAdapter;
+
     Feedback feedback;
 
 
@@ -32,7 +38,8 @@ public class AllFeedbacksActivity extends AppCompatActivity implements AdapterVi
         resolver = getContentResolver();
         feedbacks = new ArrayList<>();
 
-        listView = findViewById(R.id.listView);
+        //listView = findViewById(R.id.listView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         retrieveFeedbacks();
     }
@@ -60,9 +67,17 @@ public class AllFeedbacksActivity extends AppCompatActivity implements AdapterVi
 
         cursor.close();
 
-        feedbackAdapter = new FeedbackAdapter(this,R.layout.list_item,feedbacks);
-        listView.setAdapter(feedbackAdapter);
-        listView.setOnItemClickListener(this);
+        //feedbackAdapter = new FeedbackAdapter(this,R.layout.list_item,feedbacks);
+        //listView.setAdapter(feedbackAdapter);
+        //listView.setOnItemClickListener(this);
+
+        recyclerAdapter = new FeedbackRecyclerAdapter(this,R.layout.list_item,feedbacks);
+
+        //LinearLayoutManager manager = new LinearLayoutManager(this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        recyclerView.setAdapter(recyclerAdapter);
     }
 
     void showOptions(){
